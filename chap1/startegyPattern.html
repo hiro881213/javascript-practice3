@@ -47,9 +47,9 @@
 
         class Multiplication extends Strategy {
 
-            calculate(a, b) {
+            caculate(a, b) {
 
-                return a * b;
+                return a*b;
 
             }
 
@@ -102,6 +102,11 @@
 
         // 減算の利用
         context = new Context(new Subtraction());
+        result = context.caculate(4, 2);
+        document.write(`${result}<BR>`);
+
+        // 乗算の利用
+        context = new Context(new Multiplication());
         result = context.caculate(4, 2);
         document.write(`${result}<BR>`);
 
