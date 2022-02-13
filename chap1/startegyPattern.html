@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <meta charset = "UTF-8">
+    <title>JavaScript Practice2</title>
+
+    <!-- JavaScript -->
+    <script type = "text/javascript">
+        
+        // 親クラス
+        class Strategy {
+        
+            calculate(a, b){}
+        
+        }
+
+        // ------------------------------------------
+        // 加算クラス
+        // ------------------------------------------
+
+        class Addition extends Strategy {
+
+            caculate(a, b) {
+
+                return a + b;
+
+            }
+
+        }
+
+        // ------------------------------------------
+        // 減算クラス
+        // ------------------------------------------
+
+        class Subtraction extends Strategy {
+
+            caculate(a, b) {
+
+                return a - b;
+
+            }
+
+        }
+
+        // ------------------------------------------
+        // 乗算クラス
+        // ------------------------------------------
+
+        class Multiplication extends Strategy {
+
+            calculate(a, b) {
+
+                return a * b;
+
+            }
+
+        }
+
+        // ------------------------------------------
+        // 除算クラス
+        // ------------------------------------------
+
+        class Division extends Strategy {
+
+            calculate(a, b) {
+
+                return a / b;
+
+            }
+
+        }
+
+        // ------------------------------------------
+        // コンテキストクラス
+        // ------------------------------------------
+
+        class Context {
+
+            // コンストラクタ
+            constructor(strategy) {
+
+                this.strategy = strategy;
+
+            }
+
+            caculate(a, b) {
+
+                return this.strategy.caculate(a, b);
+
+            }
+
+
+        }
+
+        // ------------------------------------------
+        // テスト
+        // ------------------------------------------
+
+        // 加算の利用
+        let context = new Context(new Addition());
+        let result = context.caculate(4, 2);
+        document.write(`${result}<BR>`);
+
+
+    </script>
+</head>
