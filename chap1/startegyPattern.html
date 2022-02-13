@@ -61,7 +61,7 @@
 
         class Division extends Strategy {
 
-            calculate(a, b) {
+            caculate(a, b) {
 
                 return a / b;
 
@@ -107,6 +107,11 @@
 
         // 乗算の利用
         context = new Context(new Multiplication());
+        result = context.caculate(4, 2);
+        document.write(`${result}<BR>`);
+
+        // 除算
+        context = new Context(new Division());
         result = context.caculate(4, 2);
         document.write(`${result}<BR>`);
 
