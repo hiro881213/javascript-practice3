@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding : 0;
+    list-style: none;
+}
+
+#menu {
+    width: 400px;
+    margin: 10px auto;
+}
+
+#menu ul li {
+    float: left;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+#menu a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    width: 200px;
+    height: 30px;
+    background: #fa9301;
+}
+
+#menu a:hover {
+    background: pink;
+}
+
+#menu ul ul {
+    display: none;
+}
