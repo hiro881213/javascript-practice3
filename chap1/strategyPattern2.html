@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<head>
+    <meta charset = "UTF-8">
+    <title>JavaScript</title>
+
+    <!-- JavaScript -->
+    <script type = "text/javascript">
+
+        // -------------------------------------
+        // 親クラス
+        // -------------------------------------
+
+        class PayStrategy {
+
+            pay(price){}
+
+        }
+
+        // -------------------------------------
+        // MasterCardクラス
+        // -------------------------------------
+
+        class MasterCard extends PayStrategy {
+
+            pay(price) {
+
+                document.getElementById('result').innerHTML =`Pay ${price} by MasterCard`;
+
+            }
+
+        }
+
+        // -------------------------------------
+        // VisaCardクラス
+        // -------------------------------------
+
+        class VisaCard extends PayStrategy {
+
+            pay(price) {
+
+                document.getElementById('result').innerHTML =`Pay ${price} by VisaCard`;
+
+            }
+
+        }
+
+        // -------------------------------------
+        // PayPalクラス
+        // -------------------------------------
+
+        class Paypal extends PayStrategy {
+
+            pay(price) {
+
+                document.getElementById('result').innerHTML =`Pay ${price} by Paypal`;
+
+            }
+
+        }
+
+        // -------------------------------------
+        // PayManagementクラス
+        // -------------------------------------
+
+        class PayManager {
+
+            // コンストラクタ
+            constructor(payStrategy) {
+
+                this.payStrategy = payStrategy;
+
+            }
+
+            // Pay関数
+            pay(price) {
+
+                return this.payStrategy.pay(price);
+
+            }
+
+        }
+
+        // -------------------------------------
+        // テストクラス
+        // -------------------------------------
+
+        function doTestPay(obj) {
+
+            if (obj.value === 'MasterCard') {
+
+                const payManager = new PayManager(new MasterCard());
+                payManager.pay(100);
+
+            }
+
+            if (obj.value === 'VisaCard') {
+
+                const payManager = new PayManager(new VisaCard());
+                payManager.pay(100);
+
+            }
+
+            if (obj.value === 'Paypal') {
+
+                const payManager = new PayManager(new Paypal());
+                payManager.pay(100);
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type = "radio" name = 'card' 
+                value = 'MasterCard' onclick = 'doTestPay(this)' />
+        <label>Master Card</label>
+
+        <input type = "radio" name = "card" style = "margin-left: 30px;"
+            value = "VisaCard" onclick = "doTestPay(this)" />
+        <label>Visa Card</label>
+
+        <input type = "radio" name = "card" style = "margin-left: 30px;"
+            value = "Paypal" onclick = "doTestPay(this)" />
+
+        <label>PayPal</label>
+    </div>
+
+    <div>
+        <span id = "result"></span>
+    </div>
+    <div>
+        <a href = './startegyPattern.html'>←Prev</a>
+    </div>
+</body>
