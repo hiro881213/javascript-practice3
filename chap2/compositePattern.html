@@ -5,6 +5,118 @@
 
     <!-- JavaScript -->
     <script type = "text/javascript">
+        
+        // --------------------------------
+        // Nodeクラス
+        // --------------------------------
+
+        class Node {
+
+            constructor(name) {
+
+                this.name = name;
+                this.childNodes = new Array();
+
+            }
+
+            // nameゲッター
+            getName() {
+                return this.name;
+            }
+
+            // nameセッター
+            setName(name) {
+                this.name = name;
+            }
+
+            // childNodesゲッター
+            getChildNodes() {
+                return this.childNodes;
+            }
+
+            // childNodes addクラス
+            add(node) {
+                this.childNodes.push(node);
+            }
+
+        }
+
+        // --------------------------------
+        // Treeクラス
+        // --------------------------------
+
+        class Tree {
+
+            constructor(name) {
+
+                this.name = name;
+                this.root = new Node(name)
+
+            }
+
+            // nameゲッター
+            getName() {
+                return this.name = name;
+            }
+
+            // nameセッター
+            setName(name) {
+                this.name = name;
+            }
+
+            // Rootゲッタ-
+            getRoot() {
+                return this.root;
+            }
+
+        }
+
+        // --------------------------------
+        // テスト
+        // --------------------------------
+
+        // Treeを生成する
+        let tree = new Tree("World");
+        
+        // Rootを取得する
+        let root = tree.getRoot();
+
+        // Nodeを追加する
+        let china = new Node("China")
+        root.add(china)
+
+        // Beijingを追加する
+        const beijing = new Node("Bei Jing");
+        const shanghai = new Node("Shang Hai");
+
+        china.add(beijing);
+        china.add(shanghai);
+
+        let america = new Node("America");
+        root.add(america);
+
+        const sanfancisco = new Node("San Fancisco");
+        const newyork = new Node("New York");
+
+        america.add(sanfancisco);
+        america.add(newyork);
+
+        document.write(root.getName() + "<br>");
+
+        root.getChildNodes().forEach((element) => {
+
+            document.write(`----${element.getName()}<br>`);
+
+            let childNodes2 = element.getChildNodes();
+
+            childNodes2.forEach((child) => {
+
+                document.write(`--------${child.getName()}<br>`);
+            
+            });
+
+        });
+
     </script>
 </head>
 <body>
